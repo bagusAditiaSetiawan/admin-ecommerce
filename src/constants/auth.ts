@@ -1,0 +1,10 @@
+export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_REQUEST = 'LOGIN_REQUEST';
+export const LOGIN_CLEAR = 'LOGIN_CLEAR';
+
+
+export const GET_USER_ERROR = 'GET_USER_ERROR';
+export const GET_USER_SUCCESS = 'GET_USER_SUCCESS';
+export const GET_USER_REQUEST = 'GET_USER_REQUEST';
+export const GET_USER_CLEAR = 'GET_USER_CLEAR';
