@@ -1,10 +1,15 @@
-import { ReactNode, useState } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Outlet} from 'react-router-dom'
+import { useAppDispatch } from '../store';
+import { getCurrentUser } from '../actions/current-user';
 const DefaultLayout = () => {
+  const dispatch = useAppDispatch();
   const [sidebarOpen, setSidebarOpen] = useState(false);
-
+  useEffect(() => {
+    dispatch(getCurrentUser())
+  }, []);
   return (
     <div className="dark:bg-boxdark-2 dark:text-bodydark">
       <div className="flex h-screen overflow-hidden">

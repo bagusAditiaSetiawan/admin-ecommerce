@@ -1,5 +1,5 @@
 import axios from 'axios';
-export const baseApi =  'http://localhost:8080/api';
+export const baseApi =  import.meta.env.VITE_BASE_URL;
 
 interface axiosConfig {
     url: string,
