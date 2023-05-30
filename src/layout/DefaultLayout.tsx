@@ -1,15 +1,25 @@
 import { useEffect, useState } from 'react';
 import Header from '../components/Header';
 import Sidebar from '../components/Sidebar';
-import { Outlet} from 'react-router-dom'
-import { useAppDispatch } from '../store';
+import { Outlet, useNavigate} from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from '../store';
 import { getCurrentUser } from '../actions/current-user';
+import { LOGIN_CLEAR } from '../constants/auth';
 const DefaultLayout = () => {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const {error} = useAppSelector(state => state.currentUser);
   useEffect(() => {
     dispatch(getCurrentUser())
   }, []);
+
+  useEffect(() => {
+    if(error) {
+      navigate('/');
+    }
+  },[error]);
+
   return (
     <div className="dark:bg-boxdark-2 dark:text-bodydark">
       <div className="flex h-screen overflow-hidden">
